@@ -20,6 +20,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    # accountapp의 urls.py를 참조해 옴
-    path('account/', include('accountapp.urls'))
+    # account_app의 urls.py를 참조해 옴
+    path('account/', include('account_app.urls'))
 ]
