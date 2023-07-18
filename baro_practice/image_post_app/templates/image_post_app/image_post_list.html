@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
-    
+<div class="img_post_container container-fluid">
+    {% for image_post in image_post_list %}
+    <a href="/image_post/image/{{image_post.0}}">
+        <img class="list_image" src="data:image/jpeg;base64,{{ image_post.1 }}">
+    </a>
+    {% endfor %}
+</div>
 {% endblock %}

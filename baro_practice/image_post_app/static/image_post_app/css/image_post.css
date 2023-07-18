@@ -1,0 +1,49 @@
+img.list_image {
+    width: auto;
+    height: auto;
+    max-height: 20rem;
+    margin: 0.5rem;
+    border-radius: 2rem;
+    box-shadow: 0.2rem 0.2rem 0.5rem;
+}
+
+img.detail_image{
+    width: auto;
+    height: auto;
+    max-height: 30rem;
+    margin: 0.5rem;
+    border-radius: 2rem;
+    box-shadow: 0.2rem 0.2rem 0.5rem;
+}
+
+a {
+    background: transparent;
+    color: inherit;
+}
+
+.img_post_container{
+    margin-top: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    text-align: center;
+}
+
+div {
+    text-align: center;
+}
+
+table {
+    max-height: 30rem;
+}
+
+div.table_only {
+    padding-left: 3rem;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+div.one_image_row {
+    vertical-align: middle;
+}

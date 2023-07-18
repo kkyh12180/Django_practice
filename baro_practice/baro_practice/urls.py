@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # account_app의 urls.py를 참조해 옴
-    path('account/', include('account_app.urls'))
+    path('account/', include('account_app.urls')), 
+    path('image_post/', include('image_post_app.urls'))
 ]
