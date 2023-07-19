@@ -3,8 +3,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
+from account_app.forms import AccountUpdateForm
 from account_app.models import HelloWorld
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, UpdateView
 
 # Create your views here.
 
@@ -36,3 +37,9 @@ class AccountDetailView(DetailView) :
     model = User
     context_object_name = 'target_user'
     template_name = 'account_app/detail.html'
+
+class AccountUpdateView(UpdateView) :
+    model = User
+    form_class = AccountUpdateForm
+    success_url = reverse_lazy('account_app:hello_world')
+    template_name = 'account_app/update.html'
