@@ -7,10 +7,11 @@ img.list_image {
     box-shadow: 0.2rem 0.2rem 0.5rem;
 }
 
-img.detail_image{
+img.detail_image {
     width: auto;
     height: auto;
-    max-height: 30rem;
+    max-width: 100%;
+    max-height: 100%;
     margin: 0.5rem;
     border-radius: 2rem;
     box-shadow: 0.2rem 0.2rem 0.5rem;
@@ -42,8 +43,4 @@ div.table_only {
     justify-content: center;
     align-items: center;
     display: flex;
-}
-
-div.one_image_row {
-    vertical-align: middle;
 }
