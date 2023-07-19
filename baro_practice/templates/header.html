@@ -29,9 +29,18 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Pricing</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
+                {% if not user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_app:login' %}?next={{ request.path }}">Login</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_app:detail' pk=user.pk %}">My Page</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_app:logout' %}?next={{ request.path }}">Logout</a>
+                    </li>
+                {% endif %}
             </ul>
             <form class="d-flex" role="search">
                 <input

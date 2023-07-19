@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block content %}
+
+<div>
+    <div style="text-align: center; max-width: 500px; margin: 2rem auto;">
+        <p>{{ target_user.date_joined }}</p>
+        <h2 style="font-family: 'GmarketSansBold';">{{ target_user.username }}</h2>
+    </div>
+</div>
+
+{% endblock %}
