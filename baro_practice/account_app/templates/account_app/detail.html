@@ -10,7 +10,10 @@
 
         {% if target_user == user %}
             <a href="{% url 'account_app:update' pk=user.pk %}" class="btn btn-dark rounded-pill col-6 mt-3" >
-                <p>Change Information</p>
+                <h5>Change Information</h5>
+            </a>
+            <a href="{% url 'account_app:delete' pk=user.pk %}" class="btn btn-danger rounded-pill col-6 mt-3" >
+                <h5>Quit</h5>
             </a>
         {% endif %}
     </div>
