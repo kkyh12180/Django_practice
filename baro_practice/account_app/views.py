@@ -1,20 +1,25 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseForbidden, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
+from account_app.decorators import account_ownership_required
 from account_app.forms import AccountUpdateForm
 from account_app.models import HelloWorld
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
 # Create your views here.
 
-def hello_world(request) :
+has_ownership = [account_ownership_required, login_required]
 
+@login_required
+def hello_world(request) :
     if request.method == 'POST' :
         # post 에서 데이터를 가져옴
         temp = request.POST.get('hello_world_input')   
-        
+            
         # model DB 내부에 저장
         new_hello_world = HelloWorld()
         new_hello_world.text = temp
@@ -38,6 +43,8 @@ class AccountDetailView(DetailView) :
     context_object_name = 'target_user'
     template_name = 'account_app/detail.html'
 
+@method_decorator(has_ownership, 'get')
+@method_decorator(has_ownership, 'post')
 class AccountUpdateView(UpdateView) :
     model = User
     context_object_name = 'target_user'
@@ -45,6 +52,9 @@ class AccountUpdateView(UpdateView) :
     success_url = reverse_lazy('account_app:hello_world')
     template_name = 'account_app/update.html'
 
+
+@method_decorator(has_ownership, 'get')
+@method_decorator(has_ownership, 'post')
 class AccountDeleteView(DeleteView) :
     model = User
     context_object_name = 'target_user'
