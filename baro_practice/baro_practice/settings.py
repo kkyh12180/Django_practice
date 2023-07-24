@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'account_app',
     'profile_app',
     'article_app',
+    'comment_app',
 
 ]
 

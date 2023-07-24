@@ -2,12 +2,14 @@ from django.forms.models import BaseModelForm
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView
+from comment_app.forms import CommentCreationForm
 from article_app.decorators import article_ownership_required
 from article_app.models import Article
 from article_app.forms import ArticleCreationForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.urls import reverse, reverse_lazy
+from django.views.generic.edit import FormMixin
 
 # Create your views here.
 
@@ -27,8 +29,9 @@ class ArticleCreateView(CreateView) :
     def get_success_url(self) :
         return reverse('article_app:detail', kwargs={'pk': self.object.pk})
     
-class ArticleDetailView(DetailView) :
+class ArticleDetailView(DetailView, FormMixin) :
     model = Article
+    form_class = CommentCreationForm
     context_object_name = 'target_article'
     template_name = 'article_app/detail.html'
 
