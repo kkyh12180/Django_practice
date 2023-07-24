@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block content %}
+
+<div>
+    <div style="text-align: center; max-width: 700px; margin: 2rem auto;">
+
+        {% if target_article.title %}
+            <h1> {{ target_article.title }} </h1>
+        {% else %}
+            <h1>No Title</h1>
+        {% endif %}
+
+        <h5>{{ target_article.writer.profile.nickname }}</h5>
+
+        <hr>
+
+        <img style="width: 100%; border-radius: 2rem;" src="{{ target_article.image.url }}" alt="" style="margin: 2rem 0;">
+        
+        <hr>
+
+        {% if target_article.content %}
+            <p>{{ target_article.content }}</p>
+        {% else %}
+            <h1>No Content</h1>
+        {% endif %}
+
+    </div>
+
+    {% if target_article.writer == user %}
+        <div style="text-align: center;">
+            <a href="{% url 'article_app:update' pk=target_article.pk %}">
+                <btn class="btn btn-dark rounded-pill col-3 mt-3">Update Article</btn>
+            </a>
+        </div>
+        <div style="text-align: center;">
+            <a href="{% url 'article_app:delete' pk=target_article.pk %}">
+                <btn class="btn btn-danger rounded-pill col-3 mt-3">Delete Article</btn>
+            </a>
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}

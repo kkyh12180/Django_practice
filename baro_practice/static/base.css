@@ -24,3 +24,24 @@
 .baro_practice_header_logo {
     font-family: 'Cherry Bomb One', cursive;
 }
+
+a:link {
+    color: black;
+    text-decoration-line: none;
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration-line: none;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration-line: none;
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration-line: none;
+    text-decoration: none;
+}

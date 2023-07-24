@@ -25,5 +25,5 @@ urlpatterns = [
     # account_app의 urls.py를 참조해 옴
     path('accounts/', include('account_app.urls')), 
     path('profiles/', include('profile_app.urls')), 
-    path('image_post/', include('image_post_app.urls'))
+    path('articles/', include('article_app.urls')), 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

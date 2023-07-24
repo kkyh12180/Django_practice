@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class ImagePostAppConfig(AppConfig):
+class ArticleAppConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'image_post_app'
+    name = 'article_app'
