@@ -24,10 +24,10 @@
                     >
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'article_app:list' %}">Articles</a>
+                    <a class="nav-link" href="{% url 'article_app:list' %}">Article</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
+                    <a class="nav-link" href="{% url 'project_app:list' %}">Project</a>
                 </li>
                 {% if not user.is_authenticated %}
                     <li class="nav-item">

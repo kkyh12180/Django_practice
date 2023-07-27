@@ -301,4 +301,7 @@ for (let i = 0; i < masonrys.length; i++) {
     }, false);
 }
 
-magicGrid.listen();
+const listenFunc = setInterval(magicGrid.listen(), 100);
+setTimeout(function() {
+  clearInterval(listenFunc);
+}, 2000);

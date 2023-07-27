@@ -25,23 +25,12 @@
     font-family: 'Cherry Bomb One', cursive;
 }
 
-a:link {
+a {
     color: black;
-    text-decoration-line: none;
-    text-decoration: none;
-}
-
-a:visited {
-    text-decoration-line: none;
     text-decoration: none;
 }
 
 a:hover {
-    text-decoration-line: none;
-    text-decoration: none;
-}
-
-a:active {
-    text-decoration-line: none;
+    color: black;
     text-decoration: none;
 }

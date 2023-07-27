@@ -1,3 +1,4 @@
+from typing import Any, Dict
 from django.http import HttpResponseForbidden, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
@@ -9,6 +10,8 @@ from account_app.decorators import account_ownership_required
 from account_app.forms import AccountUpdateForm
 from account_app.models import HelloWorld
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
+from django.views.generic.list import MultipleObjectMixin
+from article_app.models import Article
 
 # Create your views here.
 
@@ -38,10 +41,15 @@ class AccountCreateView(CreateView) :
     success_url = reverse_lazy('account_app:hello_world')
     template_name = 'account_app/create.html'
 
-class AccountDetailView(DetailView) :
+class AccountDetailView(DetailView, MultipleObjectMixin) :
     model = User
     context_object_name = 'target_user'
     template_name = 'account_app/detail.html'
+
+    paginate_by = 25
+    def get_context_data(self, **kwargs: Any) :
+        object_list = Article.objects.filter(writer=self.get_object())
+        return super(AccountDetailView, self).get_context_data(object_list=object_list, **kwargs)
 
 @method_decorator(has_ownership, 'get')
 @method_decorator(has_ownership, 'post')
