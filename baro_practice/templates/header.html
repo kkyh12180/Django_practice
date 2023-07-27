@@ -38,6 +38,9 @@
                     </li>
                 {% else %}
                     <li class="nav-item">
+                        <a class="nav-link" href="{% url 'subscribe_app:list' %}">Subscription</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_app:detail' pk=user.pk %}">My page</a>
                     </li>
                     <li class="nav-item">
